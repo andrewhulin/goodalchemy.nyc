@@ -163,13 +163,19 @@
 
   /* Rock Salt sets very wide and tall, so everything runs smaller and more
      generously leaded than a text face would. */
-  h1 {
+  /* centred in the top panel — between the sheet's top edge and the first
+     crease (~34%), so its midpoint sits at 17%. Scoped as .letter h1 to outrank
+     the .letter > * position:relative rule. */
+  .letter h1 {
+    position: absolute;
+    left: var(--pad);
+    right: var(--pad);
+    top: 17%;
     font-weight: 400;
     font-size: clamp(1.2rem, 4.6vw, 1.55rem);
     line-height: 1.85;
-    margin-bottom: 26px;
     color: var(--stone-900);
-    transform: rotate(-1deg);
+    transform: translateY(-50%) rotate(-1deg);
   }
 
   /* Sits on the sheet's midpoint — the middle of the panel between the two
