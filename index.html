@@ -100,8 +100,10 @@
     background-repeat: no-repeat, repeat, no-repeat;
   }
 
-  /* the corner turned back on itself — the underside of the paper, lit along
-     the crease and falling lighter toward the tip */
+  /* The corner folded up onto the letter. The notch itself is left empty so the
+     wall shows through it; this flap is that same triangle mirrored back across
+     the crease, lying face-down on the page — hence the underside tone, darkest
+     at the hinge and lightening toward the tip. */
   .letter::after {
     content: "";
     position: absolute;
@@ -111,13 +113,13 @@
     height: var(--fold);
     z-index: 0;
     pointer-events: none;
-    clip-path: polygon(100% 0, 0 100%, 100% 100%);
-    background: linear-gradient(135deg,
-      var(--stone-500) 47%,
-      var(--stone-400) 56%,
-      var(--stone-200) 78%,
+    clip-path: polygon(100% 0, 0 100%, 0 0);
+    background: linear-gradient(315deg,
+      var(--stone-400) 0%,
+      var(--stone-300) 36%,
+      var(--stone-200) 72%,
       var(--stone-100) 100%);
-    filter: drop-shadow(-2px -2px 2.5px rgba(28,25,23,.34));
+    filter: drop-shadow(-1px -1px 2px rgba(28,25,23,.26));
   }
 
   /* keep the writing and the pin above the crease shading */
