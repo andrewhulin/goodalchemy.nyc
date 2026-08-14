@@ -129,42 +129,36 @@
     filter: drop-shadow(1.5px 1.5px 2px rgba(28,25,23,.3));
   }
 
-  /* keep the writing and the pin above the crease shading */
+  /* keep the writing and the tape above the crease shading */
   .letter > * { position: relative; z-index: 1; }
-  .pin { z-index: 2; }
+  .tape { z-index: 2; }
 
-  /* Pushpin head at true scale (~10mm against a half-scale sheet). Muted
-     plastic red rather than candy gloss: deep form shadow lower-right, faint
-     sheen upper-left, and a tight contact shadow — the head sits nearly
-     flush against the paper, so its shadow can't drift far. */
-  .pin {
+  /* A strip of translucent tape straddling the sheet's top edge — half on the
+     paper, half on the wall, so the paper edge reads faintly through it.
+     Torn ends (jagged clip-path), a faint adhesive sheen, and the shadow it
+     casts is hairline-tight because tape lies flat. */
+  .tape {
     position: absolute;
-    top: 24px;
+    top: -15px;
     left: 50%;
-    width: 20px;
-    height: 20px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%,
-      #c65a4e 0%, #ab392d 46%, #8a271d 78%, #6b1c14 100%);
-    box-shadow:
-      inset -3px -4px 6px rgba(40,8,6,.42),
-      inset 2px 3px 5px rgba(255,255,255,.12),
-      1px 3px 3px rgba(28,25,23,.45),
-      3px 7px 10px rgba(28,25,23,.2);
-  }
-  .pin::after {
-    content: "";
-    position: absolute;
-    top: 20%;
-    left: 26%;
-    width: 4px;
-    height: 3px;
-    border-radius: 50%;
-    transform: rotate(-20deg);
-    /* matte plastic diffuses the glint — dimmer and softer, not a hard fleck */
-    background: rgba(255,255,255,.32);
-    filter: blur(1px);
+    width: 110px;
+    height: 34px;
+    transform: translateX(-50%) rotate(2.5deg);
+    background-color: rgba(248,244,228,.4);
+    background-image:
+      /* faint lengthwise streaks in the adhesive */
+      repeating-linear-gradient(90deg,
+        rgba(255,255,255,.07) 0 2px, transparent 2px 7px),
+      /* edges catch a touch more light than the middle */
+      linear-gradient(to bottom,
+        rgba(255,255,255,.22), rgba(255,255,255,0) 22%,
+        rgba(255,255,255,0) 78%, rgba(120,113,108,.1));
+    clip-path: polygon(
+      2% 0, 96% 2%,
+      100% 14%, 97% 30%, 99.5% 48%, 96.5% 64%, 99% 80%,
+      96% 100%, 3% 98%,
+      .5% 84%, 3.5% 68%, 1% 50%, 3.5% 34%, .5% 18%);
+    filter: drop-shadow(1px 2px 2px rgba(28,25,23,.14));
   }
 
   /* Rock Salt sets very wide and tall, so everything runs smaller and more
@@ -234,7 +228,7 @@
 </head>
 <body>
   <main class="letter">
-    <span class="pin" aria-hidden="true"></span>
+    <span class="tape" aria-hidden="true"></span>
     <h1>Good Alchemy is out for lunch</h1>
     <div class="body">
       <p><a href="https://andrewhulin.com" rel="noopener">Andrew&nbsp;Hulin</a> is currently leading design at <a href="https://slingshotai.com" rel="noopener">Slingshot&nbsp;AI</a>.</p>
