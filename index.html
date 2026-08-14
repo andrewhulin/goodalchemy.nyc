@@ -66,7 +66,7 @@
     z-index: 0;
     pointer-events: none;
     border-radius: 1px;
-    background-color: var(--stone-200);
+    background-color: var(--stone-50);
     clip-path: polygon(
       0 0,
       100% 0,
@@ -92,12 +92,10 @@
       rgba(252,252,251,.5) 66.9%,
       rgba(28,25,23,.022) 67.6%,
       rgba(28,25,23,0)    76%),
-      /* ruled lines */
-      linear-gradient(var(--stone-300) 1px, transparent 1px),
-      /* aged warmth pooling toward the edges */
-      radial-gradient(ellipse at 50% 42%, rgba(250,250,249,.55) 20%, transparent 62%, rgba(168,162,158,.30) 100%);
-    background-size: 100% 100%, 100% 2.1em, 100% 100%;
-    background-repeat: no-repeat, repeat, no-repeat;
+      /* barely-there fall-off at the edges so the sheet isn't a flat rectangle */
+      radial-gradient(ellipse at 50% 42%, rgba(255,255,255,.7) 30%, transparent 74%, rgba(168,162,158,.13) 100%);
+    background-size: 100% 100%, 100% 100%;
+    background-repeat: no-repeat, no-repeat;
   }
 
   /* The corner folded up onto the letter. The notch itself is left empty so the
@@ -166,13 +164,13 @@
   p {
     font-family: "Times New Roman", Times, serif;
     font-size: 1.15rem;
-    line-height: 2.1rem;
+    line-height: 1.85;
     margin-bottom: 1.1em;
-    color: var(--stone-700);
+    color: #000;
   }
 
   a {
-    color: var(--stone-900);
+    color: #000;
     text-decoration-color: var(--stone-500);
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
