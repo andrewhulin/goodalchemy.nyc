@@ -66,7 +66,7 @@
     border-radius: 1px;
   }
 
-  /* three creases from being folded down to fit an envelope.
+  /* two creases — the tri-fold a letter gets to fit an envelope.
      Each crease is a dark valley immediately followed by a lit ridge,
      with the panels between them shaded so the sheet reads as not-quite-flat. */
   .letter::before {
@@ -77,26 +77,19 @@
     pointer-events: none;
     border-radius: inherit;
     background-image: linear-gradient(to bottom,
-      rgba(28,25,23,0)    17%,
-      rgba(28,25,23,.032) 24.4%,
-      rgba(12,10,9,.07)   24.85%,
-      rgba(252,252,251,.5) 25.15%,
-      rgba(28,25,23,.022) 25.8%,
-      rgba(28,25,23,0)    33%,
-
+      rgba(28,25,23,0)    24%,
+      rgba(28,25,23,.032) 32.7%,
+      rgba(12,10,9,.07)   33.2%,
+      rgba(252,252,251,.5) 33.5%,
+      rgba(28,25,23,.022) 34.2%,
       rgba(28,25,23,0)    42%,
-      rgba(28,25,23,.032) 49.4%,
-      rgba(12,10,9,.07)   49.85%,
-      rgba(252,252,251,.5) 50.15%,
-      rgba(28,25,23,.022) 50.8%,
-      rgba(28,25,23,0)    58%,
 
-      rgba(28,25,23,0)    67%,
-      rgba(28,25,23,.032) 74.4%,
-      rgba(12,10,9,.07)   74.85%,
-      rgba(252,252,251,.5) 75.15%,
-      rgba(28,25,23,.022) 75.8%,
-      rgba(28,25,23,0)    83%);
+      rgba(28,25,23,0)    58%,
+      rgba(28,25,23,.032) 66.1%,
+      rgba(12,10,9,.07)   66.6%,
+      rgba(252,252,251,.5) 66.9%,
+      rgba(28,25,23,.022) 67.6%,
+      rgba(28,25,23,0)    76%);
   }
 
   /* keep the writing and the pin above the crease shading */
