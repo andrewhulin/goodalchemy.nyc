@@ -163,9 +163,10 @@
   /* typeset body against the handwritten heading and signature */
   p {
     font-family: "Times New Roman", Times, serif;
-    font-size: 1.15rem;
-    line-height: 1.85;
-    margin-bottom: 1.1em;
+    /* scaled and leaded like 12pt Times in a Word doc rather than web body copy */
+    font-size: .88rem;
+    line-height: 1.5;
+    margin-bottom: .9em;
     color: #000;
   }
 
@@ -192,7 +193,7 @@
 
   @media (max-width: 480px) {
     .letter { padding: 72px 34px 52px; min-height: 520px; }
-    p { font-size: 1.08rem; }
+    p { font-size: .86rem; }
   }
 </style>
 </head>
