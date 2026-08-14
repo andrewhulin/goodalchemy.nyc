@@ -49,35 +49,36 @@
     display: flex;
     flex-direction: column;
     padding: 88px 52px 64px;
-    background-color: var(--stone-200);
-    background-image:
-      /* ruled lines */
-      linear-gradient(var(--stone-300) 1px, transparent 1px),
-      /* aged warmth pooling toward the edges */
-      radial-gradient(ellipse at 50% 42%, rgba(250,250,249,.55) 20%, transparent 62%, rgba(168,162,158,.30) 100%);
-    background-size: 100% 2.1em, 100% 100%;
-    background-repeat: repeat, no-repeat;
     color: var(--stone-800);
     transform: rotate(-2deg);
-    /* one sheet lifted off the wall — no stacked-page edge beneath it */
-    box-shadow:
-      0 1px 2px rgba(28,25,23,.18),
-      0 14px 30px rgba(28,25,23,.26),
-      0 34px 64px rgba(28,25,23,.18);
-    border-radius: 1px;
+    /* size of the dog-eared corner */
+    --fold: 54px;
   }
 
-  /* two creases — the tri-fold a letter gets to fit an envelope.
-     Each crease is a dark valley immediately followed by a lit ridge,
-     with the panels between them shaded so the sheet reads as not-quite-flat. */
+  /* The sheet itself: paper, ruled lines, aged edges, and the two creases of a
+     tri-fold. Its bottom-right corner is clipped away to make room for the
+     dog-ear, and it uses drop-shadow rather than box-shadow so the shadow
+     follows that clipped silhouette instead of a plain rectangle. */
   .letter::before {
     content: "";
     position: absolute;
     inset: 0;
     z-index: 0;
     pointer-events: none;
-    border-radius: inherit;
-    background-image: linear-gradient(to bottom,
+    border-radius: 1px;
+    background-color: var(--stone-200);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--fold)),
+      calc(100% - var(--fold)) 100%,
+      0 100%);
+    filter:
+      drop-shadow(0 2px 2px rgba(28,25,23,.18))
+      drop-shadow(0 14px 26px rgba(28,25,23,.24));
+    background-image:
+      /* two creases — a dark valley immediately followed by a lit ridge */
+      linear-gradient(to bottom,
       rgba(28,25,23,0)    24%,
       rgba(28,25,23,.032) 32.7%,
       rgba(12,10,9,.07)   33.2%,
@@ -90,7 +91,33 @@
       rgba(12,10,9,.07)   66.6%,
       rgba(252,252,251,.5) 66.9%,
       rgba(28,25,23,.022) 67.6%,
-      rgba(28,25,23,0)    76%);
+      rgba(28,25,23,0)    76%),
+      /* ruled lines */
+      linear-gradient(var(--stone-300) 1px, transparent 1px),
+      /* aged warmth pooling toward the edges */
+      radial-gradient(ellipse at 50% 42%, rgba(250,250,249,.55) 20%, transparent 62%, rgba(168,162,158,.30) 100%);
+    background-size: 100% 100%, 100% 2.1em, 100% 100%;
+    background-repeat: no-repeat, repeat, no-repeat;
+  }
+
+  /* the corner turned back on itself — the underside of the paper, lit along
+     the crease and falling lighter toward the tip */
+  .letter::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: var(--fold);
+    height: var(--fold);
+    z-index: 0;
+    pointer-events: none;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
+    background: linear-gradient(135deg,
+      var(--stone-500) 47%,
+      var(--stone-400) 56%,
+      var(--stone-200) 78%,
+      var(--stone-100) 100%);
+    filter: drop-shadow(-2px -2px 2.5px rgba(28,25,23,.34));
   }
 
   /* keep the writing and the pin above the crease shading */
