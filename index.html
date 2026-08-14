@@ -161,9 +161,10 @@
     transform: rotate(-1deg);
   }
 
-  /* Centred on the sheet's midpoint, which is the middle of the panel between
-     the two creases (they fall at 33.5% and 66.6%). Taken out of flow so the
-     heading and signature keep their own positions at top and foot. */
+  /* Sits on the sheet's midpoint — the middle of the panel between the two
+     creases (they fall at 33.5% and 66.6%) — while the text itself stays
+     left-aligned. Taken out of flow so the heading and signature keep their
+     own positions at top and foot. */
   .body {
     position: absolute;
     left: var(--pad);
@@ -171,7 +172,6 @@
     top: 50%;
     transform: translateY(-50%);
     z-index: 1;
-    text-align: center;
   }
   .body p:last-child { margin-bottom: 0; }
 
